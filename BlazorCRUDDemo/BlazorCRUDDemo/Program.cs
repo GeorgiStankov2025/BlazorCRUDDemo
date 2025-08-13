@@ -1,5 +1,9 @@
 using BlazorCRUDDemo.Client.Pages;
+using BlazorCRUDDemo.Data;
 using BlazorCRUDDemo.Components;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
+using BlazorCRUDDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddDbContext<BlazorCRUDDemoDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
 
 var app = builder.Build();
 
@@ -31,5 +41,5 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorCRUDDemo.Client._Imports).Assembly);
-
+    
 app.Run();
