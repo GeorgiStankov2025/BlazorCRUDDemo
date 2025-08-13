@@ -33,7 +33,7 @@ else
 
 }
 
-<button @onclick="CreateGame" class="btn btn-primary">Create Game</button>
+<CreateProductButton/>
 
 @code {
 
@@ -46,11 +46,6 @@ else
 
 	}
 
-	void CreateGame()
-	{
-
-		navigationManager.NavigateTo("/editproduct");
-
-	}
+	
 
 }

@@ -1,0 +1,16 @@
+﻿
+@inject NavigationManager navigationManager 
+@rendermode InteractiveServer
+
+<button @onclick="CreateProduct" class="btn btn-primary">Create Product</button>
+
+@code {
+
+	void CreateProduct()
+	{
+
+		navigationManager.NavigateTo("/editproduct");
+
+	}
+
+}

@@ -26,5 +26,18 @@ namespace BlazorCRUDDemo.Services
             return products;
 
         }
+
+        public async Task<Product> CreateProduct(Product product)
+        {
+
+            await Context.Products.AddAsync(product);
+
+            await Context.SaveChangesAsync();
+
+            return product;
+
+        }
+
+
     }
 }

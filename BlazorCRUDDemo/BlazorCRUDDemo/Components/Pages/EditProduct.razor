@@ -1,9 +1,10 @@
 ﻿@page "/editproduct"
 @page "/editproduct{id:int}"
+@inject IProductService productService
 
 <h3>CreateProduct</h3>
 
-<EditForm Model="product" OnSubmit="HandleSubmit">
+<EditForm Model="product" OnSubmit="HandleSubmit" FormName="ëditProduct">
 
 	<label>Name</label>
 	<InputText @bind-Value="product.Name">@product.Name</InputText>
@@ -15,14 +16,15 @@
 
 	[Parameter]
 	public int? Id { get; set; }
-
-	Product product = new Product { Name = string.Empty };
+	
+	[SupplyParameterFromForm]
+	Product product{get;set;} = new Product { Name = string.Empty };
 
 	async Task HandleSubmit()
 	{
 
-		//
-		
+		await productService.CreateProduct(product);
+
 	}
 
 
