@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BlazorCRUDDemo.Migrations
+namespace BlazorCRUDDemoShared.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

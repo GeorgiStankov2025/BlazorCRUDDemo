@@ -1,4 +1,4 @@
-﻿namespace BlazorCRUDDemo.Entity
+﻿namespace BlazorCRUDDemoShared.Entity
 {
     public class Product
     {

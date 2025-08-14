@@ -1,0 +1,20 @@
+﻿@inject NavigationManager navigationManager 
+@rendermode InteractiveServer
+
+<button @onclick="EditProduct" class="btn btn-primary">Edit Product</button>
+
+@code {
+
+	[Parameter]
+	public int Id { get; set; }
+
+
+
+	void EditProduct()
+	{
+
+		navigationManager.NavigateTo($"/editproduct/{Id}");
+
+	}
+
+}

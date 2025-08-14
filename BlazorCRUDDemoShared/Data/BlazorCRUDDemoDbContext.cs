@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.Contracts;
-using BlazorCRUDDemo.Entity;
+using BlazorCRUDDemoShared.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazorCRUDDemo.Data
+namespace BlazorCRUDDemoShared.Data
 {
     public class BlazorCRUDDemoDbContext: DbContext
     {
